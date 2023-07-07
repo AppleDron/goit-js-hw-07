@@ -30,6 +30,10 @@ function onCLick(event) {
 
   const { target } = event;
 
+  if (!target.classList.contains("gallery__image")) {
+    return;
+  }
+
   const instance = basicLightbox.create(`
         <img
             src="${target.dataset.source}"
