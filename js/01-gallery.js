@@ -34,14 +34,16 @@ function onCLick(event) {
     return;
   }
 
-  const instance = basicLightbox.create(`
+  const instance = basicLightbox.create(
+    `
         <img
             src="${target.dataset.source}"
             alt="${target.alt}"
             width="800" 
             height="600"
           />
-`);
+`
+  );
 
   instance.show();
 
