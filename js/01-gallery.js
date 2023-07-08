@@ -30,7 +30,7 @@ function onCLick(event) {
 
   const { target } = event;
 
-  if (!target.classList.contains("gallery__image")) {
+  if (target.nodeName !== "IMG") {
     return;
   }
 
@@ -42,8 +42,18 @@ function onCLick(event) {
             width="800" 
             height="600"
           />
-`
+`,
+    {
+      onShow: (instance) => document.addEventListener("keydown", keyDownClick),
+      onClose: (instance) => document.addEventListener("keydown", keyDownClick),
+    }
   );
+
+  function keyDownClick(event) {
+    if (event.code === "Escape") {
+      instance.close();
+    }
+  }
 
   instance.show();
 
